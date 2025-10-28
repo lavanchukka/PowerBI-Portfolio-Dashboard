@@ -1,0 +1,300 @@
+table fact_Maximo
+	lineageTag: 22cc433b-2a1d-4469-8922-bd6c259f26af
+
+	column 'WBS Element Description'
+		dataType: string
+		lineageTag: d71dde39-46e4-4cde-b9ff-a7800350b92f
+		summarizeBy: none
+		sourceColumn: WBS Element Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Order Description'
+		dataType: string
+		lineageTag: 188d66b7-9c07-4b10-8d05-43d707d4d734
+		summarizeBy: none
+		sourceColumn: Work Order Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WORK DATE'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: b77cc525-122d-49b1-b048-082e38b76b8c
+		summarizeBy: none
+		sourceColumn: WORK DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column AMTWORKREPORTINGID
+		dataType: int64
+		formatString: 0
+		lineageTag: 53f2908d-9e3d-4018-9f0d-5d48b560a1ea
+		summarizeBy: none
+		sourceColumn: AMTWORKREPORTINGID
+
+		annotation SummarizationSetBy = User
+
+	column 'Work Order Number'
+		dataType: string
+		lineageTag: 5cc21fa8-ffce-47d5-b652-510e1c57f107
+		summarizeBy: none
+		sourceColumn: Work Order Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WORK Code'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3ac64702-1065-4092-8ead-d7a4d62608ed
+		summarizeBy: none
+		sourceColumn: WORK Code
+
+		annotation SummarizationSetBy = User
+
+	column 'WORK Code Description'
+		dataType: string
+		lineageTag: 5bdf4b13-e0da-473b-9cea-e8c5b7fadf62
+		summarizeBy: none
+		sourceColumn: WORK Code Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gang
+		dataType: string
+		lineageTag: 87823de0-282f-4224-bfd1-3a88dcf520dc
+		summarizeBy: none
+		sourceColumn: Gang
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prod Qty'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8bb92258-3ad9-449c-b596-3be26ea97124
+		summarizeBy: sum
+		sourceColumn: Prod Qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prod Unit'
+		dataType: string
+		lineageTag: d79176f2-9bde-4936-bfd1-931cb3987acc
+		summarizeBy: none
+		sourceColumn: Prod Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entered-BY Cost Center'
+		dataType: int64
+		formatString: 0
+		lineageTag: 690536ba-b434-4a4e-8f50-e76b06f1783d
+		summarizeBy: none
+		sourceColumn: Entered-BY Cost Center
+
+		annotation SummarizationSetBy = User
+
+	column TRACKSTART
+		dataType: string
+		lineageTag: 44218387-6116-4d3f-9b1b-9cfe74596194
+		summarizeBy: none
+		sourceColumn: TRACKSTART
+
+		annotation SummarizationSetBy = Automatic
+
+	column STARTLC
+		dataType: string
+		lineageTag: dd4dfe5f-12b9-4763-aa29-b279e7dc0da0
+		summarizeBy: none
+		sourceColumn: STARTLC
+
+		annotation SummarizationSetBy = Automatic
+
+	column STARTMEASUREMILEPOST
+		dataType: double
+		lineageTag: 127cbeb3-7403-4975-8613-3535c6038ea9
+		summarizeBy: none
+		sourceColumn: STARTMEASUREMILEPOST
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column STARTMEASUREMILEPOSTOFFSET
+		dataType: int64
+		formatString: 0
+		lineageTag: 6be457e6-0bd7-4339-bfcf-252d7f0afd5c
+		summarizeBy: none
+		sourceColumn: STARTMEASUREMILEPOSTOFFSET
+
+		annotation SummarizationSetBy = User
+
+	column STARTMEASUREMILEPOSTRELATIVE
+		dataType: double
+		lineageTag: 73f15d7b-0916-44e7-98e5-f87a75773d58
+		summarizeBy: none
+		sourceColumn: STARTMEASUREMILEPOSTRELATIVE
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ENDMEASUREMILEPOST
+		dataType: double
+		lineageTag: 334c4d3b-a987-4d9d-8768-2b3909075735
+		summarizeBy: none
+		sourceColumn: ENDMEASUREMILEPOST
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ENDMEASUREMILEPOSTOFFSET
+		dataType: int64
+		formatString: 0
+		lineageTag: 94905070-55e1-4506-9ebc-6e47283bb337
+		summarizeBy: none
+		sourceColumn: ENDMEASUREMILEPOSTOFFSET
+
+		annotation SummarizationSetBy = User
+
+	column ENDMEASUREMILEPOSTRELATIVE
+		dataType: double
+		lineageTag: 67704574-b999-42cb-9090-147ea53f08f8
+		summarizeBy: none
+		sourceColumn: ENDMEASUREMILEPOSTRELATIVE
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FUNCTION
+		dataType: int64
+		formatString: 0
+		lineageTag: ff33d16f-f171-4dbb-9e69-21885229a7cc
+		summarizeBy: none
+		sourceColumn: FUNCTION
+
+		annotation SummarizationSetBy = User
+
+	column 'WORK MONTH'
+		dataType: string
+		lineageTag: d06560f0-951e-4124-9e41-f3f079033e51
+		summarizeBy: none
+		sourceColumn: WORK MONTH
+		sortByColumn: 'Month no'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = User
+
+	column 'WORK DAY'
+		dataType: int64
+		formatString: 0
+		lineageTag: 47d43f50-887f-4d5c-9975-652ba9ba3851
+		summarizeBy: none
+		sourceColumn: WORK DAY
+
+		annotation SummarizationSetBy = User
+
+	column 'WORK YEAR'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1fcce184-16fb-4e05-a79f-d03568b62e12
+		summarizeBy: none
+		sourceColumn: WORK YEAR
+
+		annotation SummarizationSetBy = User
+
+	column 'WBS Element LV1'
+		dataType: string
+		lineageTag: 0ce68b6a-3dd6-45ae-b145-585482375650
+		summarizeBy: none
+		sourceColumn: WBS Element LV1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Element LV2'
+		dataType: string
+		lineageTag: 8236d111-4ded-48b5-8022-85baa5b3158e
+		summarizeBy: none
+		sourceColumn: WBS Element LV2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 88562fe7-5a29-40c5-9217-4953751c4d79
+		summarizeBy: none
+		sourceColumn: Date
+		sortByColumn: 'WORK DATE'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Fiscal Year'
+		dataType: string
+		lineageTag: 8fddf0f5-ff8a-43cd-98b4-390b2deeef37
+		summarizeBy: none
+		sourceColumn: Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month no'
+		dataType: string
+		lineageTag: 1de184d4-1e96-4e3c-8b41-809d63c12dc3
+		summarizeBy: none
+		sourceColumn: Month no
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_Maximo = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Contents("https://amtrak.sharepoint.com/sites/CapitalDeliveryNortheast/", [ApiVersion = 15]),
+				    #"Shared Documents" = Source{[Name="Shared Documents"]}[Content],
+				    General = #"Shared Documents"{[Name="General"]}[Content],
+				    #"08-Department_Administrative" = General{[Name="08-Department_Administrative"]}[Content],
+				    #"NED Overview Files" = #"08-Department_Administrative"{[Name="NED Overview Files"]}[Content],
+				    Maximo1 = #"NED Overview Files"{[Name="Maximo"]}[Content],
+				    #"Filtered Hidden Files1" = Table.SelectRows(Maximo1, each [Attributes]?[Hidden]? <> true),
+				    #"Invoke Custom Function1" = Table.AddColumn(#"Filtered Hidden Files1", "Transform File (3)", each #"Transform File (3)"([Content])),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Invoke Custom Function1", {"Name", "Source.Name"}),
+				    #"Removed Other Columns1" = Table.SelectColumns(#"Renamed Columns1", {"Source.Name", "Transform File (3)"}),
+				    #"WorkReportingENG xlsx" = #"Removed Other Columns1"{[Source.Name="WorkReportingENG.xlsx"]}[#"Transform File (3)"],
+				    #"Changed Type" = Table.TransformColumnTypes(#"WorkReportingENG xlsx",{{"AMTWORKREPORTINGID", Int64.Type}, {"Work Order Number", type text}, {"Work Order Description", type text}, {"WORK DATE", type datetime}, {"WBS Element", type text}, {"WBS Element Description", type text}, {"WORK Code", Int64.Type}, {"WORK Code Description", type text}, {"Gang", type text}, {"Prod Qty", Int64.Type}, {"Prod Unit", type text}, {"Entered-BY Cost Center", Int64.Type}, {"TRACKSTART", type text}, {"STARTLC", type text}, {"STARTMEASUREMILEPOST", type number}, {"STARTMEASUREMILEPOSTOFFSET", Int64.Type}, {"STARTMEASUREMILEPOSTRELATIVE", type number}, {"ENDMEASUREMILEPOST", type number}, {"ENDMEASUREMILEPOSTOFFSET", Int64.Type}, {"ENDMEASUREMILEPOSTRELATIVE", type number}, {"FUNCTION", Int64.Type}, {"WORK MONTH", type text}, {"WORK DAY", Int64.Type}, {"WORK YEAR", Int64.Type}}),
+				    #"Extracted Date" = Table.TransformColumns(#"Changed Type",{{"WORK DATE", DateTime.Date, type date}}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Extracted Date", "WBS Element", "WBS Element - Copy"),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Duplicated Column",{"AMTWORKREPORTINGID", "Work Order Number", "Work Order Description", "WORK DATE", "WBS Element", "WBS Element - Copy", "WBS Element Description", "WORK Code", "WORK Code Description", "Gang", "Prod Qty", "Prod Unit", "Entered-BY Cost Center", "TRACKSTART", "STARTLC", "STARTMEASUREMILEPOST", "STARTMEASUREMILEPOSTOFFSET", "STARTMEASUREMILEPOSTRELATIVE", "ENDMEASUREMILEPOST", "ENDMEASUREMILEPOSTOFFSET", "ENDMEASUREMILEPOSTRELATIVE", "FUNCTION", "WORK MONTH", "WORK DAY", "WORK YEAR"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Reordered Columns",{{"WBS Element - Copy", "WBS Element LV2"}}),
+				    #"Inserted First Characters" = Table.AddColumn(#"Renamed Columns", "First Characters", each Text.Start([WBS Element], 11), type text),
+				    #"Removed Columns" = Table.RemoveColumns(#"Inserted First Characters",{"WBS Element"}),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Removed Columns",{{"First Characters", "WBS Element LV1"}}),
+				    #"Reordered Columns1" = Table.ReorderColumns(#"Renamed Columns2",{"AMTWORKREPORTINGID", "Work Order Number", "Work Order Description", "WORK DATE", "WBS Element LV1", "WBS Element LV2", "WBS Element Description", "WORK Code", "WORK Code Description", "Gang", "Prod Qty", "Prod Unit", "Entered-BY Cost Center", "TRACKSTART", "STARTLC", "STARTMEASUREMILEPOST", "STARTMEASUREMILEPOSTOFFSET", "STARTMEASUREMILEPOSTRELATIVE", "ENDMEASUREMILEPOST", "ENDMEASUREMILEPOSTOFFSET", "ENDMEASUREMILEPOSTRELATIVE", "FUNCTION", "WORK MONTH", "WORK DAY", "WORK YEAR"}),
+				    #"Invoked Custom Function" = Table.AddColumn(#"Reordered Columns1", "Fiscal Year", each #"Transform File (3)"([WORK DATE])),
+				    #"Invoked Custom Function1" = Table.AddColumn(#"Invoked Custom Function", "Transform File (3)", each #"Transform File (3)"([Fiscal Year])),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Invoked Custom Function1",{"Transform File (3)"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Columns1",{{"Fiscal Year", type text}}),
+				    #"Inserted Date" = Table.AddColumn(#"Changed Type1", "Date", each DateTime.Date([WORK DATE]), type date),
+				    #"Removed Columns2" = Table.RemoveColumns(#"Inserted Date",{"Fiscal Year"}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Removed Columns2", "Fiscal Year", each if [WORK DATE] <= #date(2024, 9, 30) then "FY24" else if [WORK DATE] >= #date(2024, 10, 1) then "FY25" else if [WORK DATE] > #date(2025, 9, 30) then "FY26" else "N/A"),
+				    #"Filtered Rows" = Table.SelectRows(#"Added Conditional Column", each true),
+				    #"Filtered Rows1" = Table.SelectRows(#"Filtered Rows", each [WORK DATE] >= #date(2023, 10, 1)),
+				    #"Filtered Rows2" = Table.SelectRows(#"Filtered Rows1", each true),
+				    #"Added Conditional Column1" = Table.AddColumn(#"Filtered Rows2", "Month no", each if [WORK MONTH] = "OCT" then 1 else if [WORK MONTH] = "NOV" then 2 else if [WORK MONTH] = "DEC" then 3 else if [WORK MONTH] = "JAN" then 4 else if [WORK MONTH] = "FEB" then 5 else if [WORK MONTH] = "MAR" then 6 else if [WORK MONTH] = "APR" then 7 else if [WORK MONTH] = "MAY" then 8 else if [WORK MONTH] = "JUN" then 9 else if [WORK MONTH] = "JUL" then 10 else if [WORK MONTH] = "AUG" then 11 else if [WORK MONTH] = "SEP" then 12 else "N/A"),
+				    #"Sorted Rows" = Table.Sort(#"Added Conditional Column1",{{"WORK DATE", Order.Descending}}),
+				    #"Filtered Rows3" = Table.SelectRows(#"Sorted Rows", each true)
+				in
+				    #"Filtered Rows3"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

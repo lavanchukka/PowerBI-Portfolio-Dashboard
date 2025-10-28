@@ -1,0 +1,104 @@
+relationship AutoDetected_6e1e1ec4-aa60-402c-8e15-f7073f315863
+	fromColumn: fact_EPPM_TDR.'WBS LV1'
+	toColumn: dim_WBS_LV1_PM.'WBS LV1 '
+
+relationship 45310088-6d6b-4560-f37b-61ff235b4b99
+	fromColumn: dim_Project_data.WBS_LV1
+	toColumn: dim_WBS_LV1_PM.'WBS LV1 '
+
+relationship AutoDetected_be53b182-36f0-47b1-b892-b17f897bb0ba
+	fromColumn: fact_Ariba_PO.'WBS LV1'
+	toColumn: dim_WBS_LV1_PM.'WBS LV1 '
+
+relationship fa2d52b9-93b5-41c7-7a2a-baf6ded78443
+	fromColumn: fact_Labor_Costs.'Project Definition'
+	toColumn: dim_WBS_LV1_PM.'WBS LV1 '
+
+relationship AutoDetected_57061dc0-c188-48fa-b756-33b977ab0560
+	fromColumn: fact_Project_Stock.'WBS LV1'
+	toColumn: dim_WBS_LV1_PM.'WBS LV1 '
+
+relationship f6b3499c-823c-9e5f-b3de-3482504af18a
+	fromColumn: dim_Project_data.WBS_LV2
+	toColumn: fact_L2.'WBS LV2'
+
+relationship 83293a37-1b4f-01ca-98a9-dfcc47203b43
+	fromColumn: fact_Labor_Costs.'WBS Element'
+	toColumn: fact_L2.'WBS LV2'
+
+relationship d9b2e006-4896-55c9-14de-eec7f68c638e
+	fromColumn: fact_Project_Stock.'WBS LV2'
+	toColumn: fact_L2.'WBS LV2'
+
+relationship f047ae7e-02d0-2d48-cbab-54dd9cead8cb
+	fromColumn: fact_Ariba_PO.'WBS LV2'
+	toColumn: fact_L2.'WBS LV2'
+
+relationship 42acc6bd-9697-562b-712b-faf7ae801371
+	fromColumn: fact_Maximo.'WBS Element LV1'
+	toColumn: dim_WBS_LV1_PM.'WBS LV1 '
+
+relationship 64d0203a-9cfc-10f8-27b2-163e379c3085
+	fromColumn: fact_MB51.'Plant ID '
+	toColumn: dim_Plant_ID_Details.'Plant ID'
+
+relationship 36c7bd61-eb33-e02f-7c0b-eb6f205ca137
+	fromColumn: fact_Project_Stock.'Plant ID'
+	toColumn: dim_Plant_ID_Details.'Plant ID'
+
+relationship AutoDetected_200c3b0f-5914-49da-8cc0-470c1aa18211
+	fromColumn: fact_MB51.'Cost Center'
+	toColumn: dim_Cost_Centre_Descriptions.'Cost Center'
+
+relationship AutoDetected_1d3f1625-a6e3-4f6b-b113-3ae312ec52b2
+	fromColumn: fact_Ariba_PO.'Cost Center ID'
+	toColumn: dim_Cost_Centre_Descriptions.'Cost Center'
+
+relationship 2b7d43a0-6d83-7508-86f5-a0d91f35a96b
+	fromColumn: fact_Labor_details.'Cost Center'
+	toColumn: dim_Cost_Centre_Descriptions.'Cost Center'
+
+relationship 78308863-c208-e9b0-6f8c-58e3189935ed
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'SAP L1, L2 Pivot'.'WBS Element'
+	toColumn: fact_L2.'WBS LV2'
+
+relationship f4ae5b0e-1a61-f8a9-1f92-e24e1b81ecff
+	fromColumn: 'SAP L1, L2 Pivot'.'Project Definition'
+	toColumn: fact_L1.'WBS LV1'
+
+relationship AutoDetected_eb0ab778-4b4a-4bd9-b0a5-cee845e1dc11
+	fromColumn: 'Track Production'.'WBS  lv1'
+	toColumn: dim_WBS_LV1_PM.'WBS LV1 '
+
+relationship AutoDetected_c3e7ee06-ae71-4c01-990b-fbfa3c198b34
+	fromColumn: 'Track Production'.'WBS  lv1'
+	toColumn: fact_L1.'WBS LV1'
+
+relationship AutoDetected_f03f77f1-183a-45ef-b5e0-dc4953974108
+	isActive: false
+	fromColumn: 'Track Production'.AMTWORKREPORTINGID
+	toColumn: fact_Maximo.AMTWORKREPORTINGID
+
+relationship AutoDetected_76b053a7-5872-4bf9-93d5-167a986ace53
+	isActive: false
+	fromColumn: 'Track Production'.'WBS Element'
+	toColumn: 'SAP L1, L2 Pivot'.'WBS Element'
+
+relationship aa2dbffa-f5c2-381b-5149-1ffd9c3a222e
+	fromColumn: 'Track Production'.Asset
+	toColumn: 'Track Summary'.'Asset Type'
+
+relationship AutoDetected_b7df4a25-24a1-4680-9323-5f48754d28e5
+	fromColumn: 'Track Financials'.'WBS LV1'
+	toColumn: dim_WBS_LV1_PM.'WBS LV1 '
+
+relationship AutoDetected_b67f8b47-dea2-49a2-b3bb-0940aabb3a23
+	fromColumn: 'Track Financials'.'WBS LV1'
+	toColumn: fact_L1.'WBS LV1'
+
+relationship 23bf38a6-d516-f23f-0056-0a8ec90d6d13
+	fromColumn: 'SAP L1, L2'.'WBS Element'
+	toColumn: 'SAP L1, L2 Pivot'.'WBS Element'
+

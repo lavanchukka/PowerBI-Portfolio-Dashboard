@@ -1,0 +1,398 @@
+table dim_Project_data
+	lineageTag: c35ff03b-dab9-42f3-953e-29c9d6b8f4e6
+
+	column WBS_LV2
+		dataType: string
+		lineageTag: d269abbc-2b21-48a2-9b04-fd267b52d3b9
+		summarizeBy: none
+		sourceColumn: WBS_LV2
+
+		annotation SummarizationSetBy = Automatic
+
+	column WBS_LV2_Description
+		dataType: string
+		lineageTag: 68d33a68-b460-487e-a7df-b3bfc44d3763
+		summarizeBy: none
+		sourceColumn: WBS_LV2_Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column WBS_Status
+		dataType: string
+		lineageTag: 41323205-71d9-4460-a603-77e37294e2c2
+		summarizeBy: none
+		sourceColumn: WBS_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column WBS_LV1
+		dataType: string
+		lineageTag: 5402c970-bf63-4f23-9958-00c6a563fbf6
+		summarizeBy: none
+		sourceColumn: WBS_LV1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Project_Manager
+		dataType: string
+		lineageTag: 1b0e9fa5-5433-498a-869a-ed4cc53629ce
+		summarizeBy: none
+		sourceColumn: Project_Manager
+
+		annotation SummarizationSetBy = Automatic
+
+	column Portfolio
+		dataType: string
+		lineageTag: 435e9221-8958-499c-9c77-07d011545f07
+		summarizeBy: none
+		sourceColumn: Portfolio
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: 499f1a8f-75e8-48b7-a8f1-a9ed3dfde5e6
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column PMO_Number
+		dataType: string
+		lineageTag: 15f6147f-19ab-42d9-8405-e9587c85e5f5
+		summarizeBy: none
+		sourceColumn: PMO_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Discipline
+		dataType: string
+		lineageTag: f78a4dbd-2d91-477b-be18-c6b2bef7a810
+		summarizeBy: none
+		sourceColumn: Discipline
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estimate_Status
+		dataType: string
+		lineageTag: 8eef354b-c135-40ce-91a1-c3e1040aa631
+		summarizeBy: none
+		sourceColumn: Estimate_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Schedule_Status
+		dataType: string
+		lineageTag: 5f36694c-4c15-402a-92a1-fa775d2cb545
+		summarizeBy: none
+		sourceColumn: Schedule_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column AIMS_Status
+		dataType: string
+		lineageTag: 2cc290f0-cde0-49e7-828a-7999f0e4b25d
+		summarizeBy: none
+		sourceColumn: AIMS_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETC_File_Status
+		dataType: string
+		lineageTag: 5ba007a6-1b36-444c-9aea-63bca54bca09
+		summarizeBy: none
+		sourceColumn: ETC_File_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column FY25_Plan_Development_Comments
+		dataType: string
+		lineageTag: eefe755b-9f02-41da-a9fd-59e2e80b4e91
+		summarizeBy: none
+		sourceColumn: FY25_Plan_Development_Comments
+
+		annotation SummarizationSetBy = Automatic
+
+	column FY24_Plan
+		dataType: string
+		lineageTag: b5034449-25df-4934-962e-b68ff39d4b33
+		summarizeBy: none
+		sourceColumn: FY24_Plan
+
+		annotation SummarizationSetBy = Automatic
+
+	column FY25_Plan
+		dataType: string
+		lineageTag: 75d069b2-7d7b-4dec-83c7-cfdcd4b0d65a
+		summarizeBy: none
+		sourceColumn: FY25_Plan
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material_Control
+		dataType: string
+		lineageTag: a7221afc-7c18-45ae-83c3-a25cf258d036
+		summarizeBy: none
+		sourceColumn: Material_Control
+
+		annotation SummarizationSetBy = Automatic
+
+	column FY25_Material_Estimate
+		dataType: int64
+		formatString: 0
+		lineageTag: 6a3b3941-6bff-4de7-93ec-6f31fb9d1c32
+		summarizeBy: sum
+		sourceColumn: FY25_Material_Estimate
+
+		annotation SummarizationSetBy = Automatic
+
+	column FY25_Material_Notes
+		dataType: string
+		lineageTag: b5da6bc7-06d2-434f-9757-bdaee44c28af
+		summarizeBy: none
+		sourceColumn: FY25_Material_Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cost_Category
+		dataType: string
+		lineageTag: 0c5914af-98f8-476e-a57a-6de109305e5f
+		summarizeBy: none
+		sourceColumn: Cost_Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Resource_Description
+		dataType: string
+		lineageTag: 70e9ba8c-4377-4820-9519-42226624dbdb
+		summarizeBy: none
+		sourceColumn: Resource_Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estimator
+		dataType: string
+		lineageTag: 7fe62b36-3a5f-4864-be3a-66ff29b0864d
+		summarizeBy: none
+		sourceColumn: Estimator
+
+		annotation SummarizationSetBy = Automatic
+
+	column Scheduler
+		dataType: string
+		lineageTag: 9fb402b0-4a49-48bc-9928-05e831867c75
+		summarizeBy: none
+		sourceColumn: Scheduler
+
+		annotation SummarizationSetBy = Automatic
+
+	column FY25_Force_Account
+		dataType: string
+		lineageTag: 01f71a99-a79f-4857-81e1-aef5a9ab3f8d
+		summarizeBy: none
+		sourceColumn: FY25_Force_Account
+
+		annotation SummarizationSetBy = Automatic
+
+	column FY25_Major_Outage
+		dataType: string
+		lineageTag: 3e701e87-cd10-4bb4-ad34-f7c94d5571c6
+		summarizeBy: none
+		sourceColumn: FY25_Major_Outage
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Overall Scope'
+		dataType: string
+		lineageTag: ec8dd753-71ea-4a3f-b2c3-bdd892500fae
+		summarizeBy: none
+		sourceColumn: Overall Scope
+
+		annotation SummarizationSetBy = Automatic
+
+	column FY25_Scope
+		dataType: string
+		lineageTag: fdde190e-6990-4a7e-8047-0e93c1737126
+		summarizeBy: none
+		sourceColumn: FY25_Scope
+
+		annotation SummarizationSetBy = Automatic
+
+	column BCC_Eligibility
+		dataType: string
+		lineageTag: 301067a9-5fa5-4cec-8c03-46fa57cede9b
+		summarizeBy: none
+		sourceColumn: BCC_Eligibility
+
+		annotation SummarizationSetBy = Automatic
+
+	column BCC_Segment
+		dataType: int64
+		formatString: 0
+		lineageTag: 82be8e02-4c9b-449a-929b-01c98bacd7b8
+		summarizeBy: sum
+		sourceColumn: BCC_Segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column BCC_Segment_Name
+		dataType: string
+		lineageTag: d98b989c-180d-41a5-9d9a-cf2bd1bd200c
+		summarizeBy: none
+		sourceColumn: BCC_Segment_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Line_Code
+		dataType: string
+		lineageTag: 72b580d4-1e01-409b-bc61-13d99f7d88bb
+		summarizeBy: none
+		sourceColumn: Line_Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Milepost
+		dataType: string
+		lineageTag: 196546a9-aed9-499c-8ad0-b215ff5029bf
+		summarizeBy: none
+		sourceColumn: Milepost
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: string
+		lineageTag: ad6207d3-b58e-47e7-ac8b-1457817ecd1c
+		summarizeBy: none
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subdivision
+		dataType: string
+		lineageTag: 8973c453-186c-47bc-8281-fff2bb10c659
+		summarizeBy: none
+		sourceColumn: Subdivision
+
+		annotation SummarizationSetBy = Automatic
+
+	column Milestone_Start
+		dataType: string
+		lineageTag: a3e69c88-938f-48c6-a3da-5bed987d79e3
+		summarizeBy: none
+		sourceColumn: Milestone_Start
+
+		annotation SummarizationSetBy = Automatic
+
+	column Milestone_End
+		dataType: string
+		lineageTag: cdde7e53-fd4f-4b81-a824-14675b8ed97d
+		summarizeBy: none
+		sourceColumn: Milestone_End
+
+		annotation SummarizationSetBy = Automatic
+
+	column Task_Manager
+		dataType: string
+		lineageTag: 400a5f8b-3be9-4b39-9f77-91e72ad0aca6
+		summarizeBy: none
+		sourceColumn: Task_Manager
+
+		annotation SummarizationSetBy = Automatic
+
+	column FY25_Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 10b002ae-6da2-4d0b-9500-1500b51b813d
+		summarizeBy: sum
+		sourceColumn: FY25_Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column FY25_Maximo_Work_Code_Description
+		dataType: string
+		lineageTag: c0c67a5d-5c1d-47e2-a4f7-a5e5577df672
+		summarizeBy: none
+		sourceColumn: FY25_Maximo_Work_Code_Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column FY25_Budget
+		dataType: double
+		lineageTag: 250b3730-dfa8-45d2-8692-8780054c1a91
+		summarizeBy: sum
+		sourceColumn: FY25_Budget
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Safety_Plan
+		dataType: string
+		lineageTag: 3f80005d-de6e-4643-a66f-82adf7fceb4e
+		summarizeBy: none
+		sourceColumn: Safety_Plan
+
+		annotation SummarizationSetBy = Automatic
+
+	column WBS_LV2_Description_Long_Name
+		dataType: string
+		lineageTag: 7663f204-52fd-43c4-a134-5f703f777da2
+		summarizeBy: none
+		sourceColumn: WBS_LV2_Description_Long_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column WBS_LV1_Description
+		dataType: string
+		lineageTag: b3528a9d-55c8-40b5-bb97-919ce58df659
+		summarizeBy: none
+		sourceColumn: WBS_LV1_Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column WBS_LV1_Description_PMO_Long_Name
+		dataType: string
+		lineageTag: 5612b104-13af-4737-91c8-8e8215514e61
+		summarizeBy: none
+		sourceColumn: WBS_LV1_Description_PMO_Long_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_Project_data = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Contents("https://amtrak.sharepoint.com/sites/CapitalDeliveryNortheast/", [ApiVersion = 15]),
+				    #"Shared Documents" = Source{[Name="Shared Documents"]}[Content],
+				    General = #"Shared Documents"{[Name="General"]}[Content],
+				    #"09-Portfolio_Workbooks" = General{[Name="09-Portfolio_Workbooks"]}[Content],
+				    #"Filtered Rows" = Table.SelectRows(#"09-Portfolio_Workbooks", each ([Name] = "NortheastPortfolio-Data-FY25CapitalPlanning.xlsx")),
+				    #"NortheastPortfolio-Data-FY25CapitalPlanning xlsx" = #"Filtered Rows"{[Name="NortheastPortfolio-Data-FY25CapitalPlanning.xlsx"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"NortheastPortfolio-Data-FY25CapitalPlanning xlsx"),
+				    #"FY25-Northeast-Level2_Sheet" = #"Imported Excel Workbook"{[Item="FY25-Northeast-Level2",Kind="Sheet"]}[Data],
+				    #"Removed Top Rows" = Table.Skip(#"FY25-Northeast-Level2_Sheet",10),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+				    #"Removed Top Rows1" = Table.Skip(#"Promoted Headers",1),
+				    #"Promoted Headers1" = Table.PromoteHeaders(#"Removed Top Rows1", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers1",{{"WBS_Element", type text}, {"WBS_Description", type text}, {"WBS_Status", type text}, {"SAP_Number", type text}, {"Project_Manager", type text}, {"Portfolio", type text}, {"Type", type text}, {"PMO_Number", type any}, {"Discipline", type text}, {"Estimate_Status", type text}, {"Schedule_Status", type text}, {"AIMS_Status", type text}, {"ETC_File_Status", type text}, {"FY25_Plan_Development_Comments", type text}, {"FY24_Plan", type text}, {"FY25_Plan", type text}, {"Material_Control", type text}, {"FY25_Material_Estimate", Int64.Type}, {"FY25_Material_Notes", type text}, {"Cost_Category", type text}, {"Resource_Description", type text}, {"Estimator", type text}, {"Scheduler", type text}, {"FY25_Force_Account", type text}, {"FY25_Major_Outage", type text}, {"Overall Scope", type text}, {"FY25_Scope", type text}, {"BCC_Eligibility", type text}, {"BCC_Segment", Int64.Type}, {"BCC_Segment_Name", type text}, {"Line_Code", type text}, {"Milepost", type any}, {"Division", type text}, {"Subdivision", type text}, {"Milestone_Start", type any}, {"Milestone_End", type any}, {"Task_Manager", type text}, {"FY25_Quantity", Int64.Type}, {"FY25_Maximo_Work_Code_Description", type text}, {"FY25_Budget", type number}, {"Safety_Plan", type text}, {"WBS_Long_Name", type text}, {"SAP_Name", type text}, {"PMO_SAP_Long_Name", type text}, {"DataComplete", type number}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"WBS_Description", "WBS_Description_LV2"}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns",{"DataComplete"}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Removed Columns",{"PMO_SAP_Long_Name", "WBS_Long_Name", "WBS_Element", "WBS_Description_LV2", "WBS_Status", "SAP_Number", "Project_Manager", "Portfolio", "Type", "PMO_Number", "Discipline", "Estimate_Status", "Schedule_Status", "AIMS_Status", "ETC_File_Status", "FY25_Plan_Development_Comments", "FY24_Plan", "FY25_Plan", "Material_Control", "FY25_Material_Estimate", "FY25_Material_Notes", "Cost_Category", "Resource_Description", "Estimator", "Scheduler", "FY25_Force_Account", "FY25_Major_Outage", "Overall Scope", "FY25_Scope", "BCC_Eligibility", "BCC_Segment", "BCC_Segment_Name", "Line_Code", "Milepost", "Division", "Subdivision", "Milestone_Start", "Milestone_End", "Task_Manager", "FY25_Quantity", "FY25_Maximo_Work_Code_Description", "FY25_Budget", "Safety_Plan", "SAP_Name"}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Reordered Columns",{{"WBS_Long_Name", "WBS_LV2_Description_Long_Name"}, {"WBS_Element", "WBS_Element_LV2"}, {"PMO_SAP_Long_Name", "WBS_LV1_Description_PMO_SAP_Long_Name"}}),
+				    #"Reordered Columns1" = Table.ReorderColumns(#"Renamed Columns1",{"WBS_LV1_Description_PMO_SAP_Long_Name", "WBS_LV2_Description_Long_Name", "SAP_Number", "WBS_Element_LV2", "WBS_Description_LV2", "WBS_Status", "Project_Manager", "Portfolio", "Type", "PMO_Number", "Discipline", "Estimate_Status", "Schedule_Status", "AIMS_Status", "ETC_File_Status", "FY25_Plan_Development_Comments", "FY24_Plan", "FY25_Plan", "Material_Control", "FY25_Material_Estimate", "FY25_Material_Notes", "Cost_Category", "Resource_Description", "Estimator", "Scheduler", "FY25_Force_Account", "FY25_Major_Outage", "Overall Scope", "FY25_Scope", "BCC_Eligibility", "BCC_Segment", "BCC_Segment_Name", "Line_Code", "Milepost", "Division", "Subdivision", "Milestone_Start", "Milestone_End", "Task_Manager", "FY25_Quantity", "FY25_Maximo_Work_Code_Description", "FY25_Budget", "Safety_Plan", "SAP_Name"}),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Reordered Columns1",{{"SAP_Number", "WBS_LV1"}}),
+				    #"Reordered Columns2" = Table.ReorderColumns(#"Renamed Columns2",{"Scheduler", "SAP_Name", "Task_Manager", "Cost_Category", "Estimator", "WBS_LV1_Description_PMO_SAP_Long_Name", "WBS_LV2_Description_Long_Name", "WBS_LV1", "WBS_Element_LV2", "WBS_Description_LV2", "Project_Manager", "WBS_Status", "Portfolio", "Type", "PMO_Number", "Discipline", "Estimate_Status", "Schedule_Status", "AIMS_Status", "ETC_File_Status", "FY25_Plan_Development_Comments", "FY24_Plan", "FY25_Plan", "Material_Control", "FY25_Material_Estimate", "FY25_Material_Notes", "Resource_Description", "FY25_Force_Account", "FY25_Major_Outage", "Overall Scope", "FY25_Scope", "BCC_Eligibility", "BCC_Segment", "BCC_Segment_Name", "Line_Code", "Milepost", "Division", "Subdivision", "Milestone_Start", "Milestone_End", "FY25_Quantity", "FY25_Maximo_Work_Code_Description", "FY25_Budget", "Safety_Plan"}),
+				    #"Renamed Columns3" = Table.RenameColumns(#"Reordered Columns2",{{"SAP_Name", "WBS_LV1_Description"}}),
+				    #"Reordered Columns3" = Table.ReorderColumns(#"Renamed Columns3",{"WBS_LV1", "WBS_LV1_Description", "WBS_LV1_Description_PMO_SAP_Long_Name", "WBS_Element_LV2", "WBS_Description_LV2", "WBS_LV2_Description_Long_Name", "Project_Manager", "Task_Manager", "Scheduler", "Estimator", "Cost_Category", "Portfolio", "WBS_Status", "Type", "PMO_Number", "Discipline", "Estimate_Status", "Schedule_Status", "AIMS_Status", "ETC_File_Status", "FY25_Plan_Development_Comments", "FY24_Plan", "FY25_Plan", "Material_Control", "FY25_Material_Estimate", "FY25_Material_Notes", "Resource_Description", "FY25_Force_Account", "FY25_Major_Outage", "Overall Scope", "FY25_Scope", "BCC_Eligibility", "BCC_Segment", "BCC_Segment_Name", "Line_Code", "Milepost", "Division", "Subdivision", "Milestone_Start", "Milestone_End", "FY25_Quantity", "FY25_Maximo_Work_Code_Description", "FY25_Budget", "Safety_Plan"}),
+				    #"Renamed Columns4" = Table.RenameColumns(#"Reordered Columns3",{{"WBS_LV1_Description_PMO_SAP_Long_Name", "WBS_LV1_Description_PMO_Long_Name"}, {"WBS_Element_LV2", "WBS_LV2"}, {"WBS_Description_LV2", "WBS_LV2_Description"}}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Renamed Columns4", each ([Portfolio] <> null)),
+				    #"Replaced Value" = Table.ReplaceValue(#"Filtered Rows1",null,"N/A",Replacer.ReplaceValue,{"WBS_LV1_Description"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value",null,"N/A",Replacer.ReplaceValue,{"WBS_LV2_Description"}),
+				    #"Filtered Rows2" = Table.SelectRows(#"Replaced Value1", each true)
+				in
+				    #"Filtered Rows2"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

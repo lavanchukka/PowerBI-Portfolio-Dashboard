@@ -1,0 +1,42 @@
+table dim_Cost_Centre_Descriptions
+	lineageTag: f97c5a83-89e4-4a6f-9507-57c869681167
+
+	column 'Cost Center'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f42f2b4-3ccb-485a-82ae-82961020f590
+		summarizeBy: none
+		sourceColumn: Cost Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 84ba3450-8c99-44fb-9ab5-0f3d1e134696
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_Cost_Centre_Descriptions = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Contents("https://amtrak.sharepoint.com/sites/CapitalDeliveryNortheast/", [ApiVersion = 15]),
+				    #"Shared Documents" = Source{[Name="Shared Documents"]}[Content],
+				    General = #"Shared Documents"{[Name="General"]}[Content],
+				    #"08-Department_Administrative" = General{[Name="08-Department_Administrative"]}[Content],
+				    #"NED Overview Files" = #"08-Department_Administrative"{[Name="NED Overview Files"]}[Content],
+				    #"Cost Centers xlsx" = #"NED Overview Files"{[Name="Cost Centers.xlsx"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"Cost Centers xlsx"),
+				    #"Table 1_Sheet" = #"Imported Excel Workbook"{[Item="Table 1",Kind="Sheet"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(#"Table 1_Sheet",{"Column3"}),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Columns", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Cost Center", Int64.Type}, {"Description", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

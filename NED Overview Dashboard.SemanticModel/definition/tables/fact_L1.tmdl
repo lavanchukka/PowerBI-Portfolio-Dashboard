@@ -1,0 +1,172 @@
+table fact_L1
+	lineageTag: 0c63695c-dbee-4e6e-972a-1e7a27a8fe7c
+
+	column 'CAPD  Arm'
+		dataType: string
+		lineageTag: 231bb674-0a6a-43d7-ae57-9dddde0f91d9
+		summarizeBy: none
+		sourceColumn: CAPD  Arm
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAPD Arm Category'
+		dataType: string
+		lineageTag: e7f8b58c-3b08-4032-b8bb-7ed469a69658
+		summarizeBy: none
+		sourceColumn: CAPD Arm Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Vice President'
+		dataType: string
+		lineageTag: f6758952-dc47-4f5f-b641-15ae122e2037
+		summarizeBy: none
+		sourceColumn: Vice President
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asst Vice President/Sr. Director'
+		dataType: string
+		lineageTag: a1a9e639-dd38-4906-858e-3964467b1a5e
+		summarizeBy: none
+		sourceColumn: Asst Vice President/Sr. Director
+
+		annotation SummarizationSetBy = Automatic
+
+	column Portfolio
+		dataType: string
+		lineageTag: 27174b53-5191-4b8c-abf4-eead6343c3ef
+		summarizeBy: none
+		sourceColumn: Portfolio
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Project or Program'
+		dataType: string
+		lineageTag: 3b74f015-68be-4fa1-91a8-b214d6771f8f
+		summarizeBy: none
+		sourceColumn: Project or Program
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS LV1'
+		dataType: string
+		lineageTag: 39dce101-f5e7-4505-aaa5-6b012808cabe
+		summarizeBy: none
+		sourceColumn: WBS LV1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS LV1 Description'
+		dataType: string
+		lineageTag: 1d9df974-e52e-47af-a62b-4b48c217ab74
+		summarizeBy: none
+		sourceColumn: WBS LV1 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Project Manager'
+		dataType: string
+		lineageTag: 61d63bfa-655b-413a-a65a-655971ce29a2
+		summarizeBy: none
+		sourceColumn: Project Manager
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Complexity Rating'
+		dataType: string
+		lineageTag: e2efb653-9e48-4077-8a8e-4468e659589a
+		summarizeBy: none
+		sourceColumn: Complexity Rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Level 1 Budget'
+		dataType: int64
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: c95cce84-51f7-41c1-a695-a3296f40a917
+		summarizeBy: sum
+		sourceColumn: Level 1 Budget
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FY Level 2 Budget'
+		dataType: int64
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 269f22e8-fcbe-45ed-95b3-b8cdc95cd2dd
+		summarizeBy: sum
+		sourceColumn: FY Level 2 Budget
+
+		annotation SummarizationSetBy = Automatic
+
+	column Actuals
+		dataType: int64
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 60097d43-0b7b-4ad0-8917-49dcae015f6e
+		summarizeBy: sum
+		sourceColumn: Actuals
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Board Approved LOP'
+		dataType: int64
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: d69b6776-72f3-4ba9-b781-2ce01d601017
+		summarizeBy: sum
+		sourceColumn: Board Approved LOP
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LOP Actuals'
+		dataType: int64
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 7355a09f-4706-46d8-8e59-b58299b548c0
+		summarizeBy: sum
+		sourceColumn: LOP Actuals
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Variance = fact_L1[FY Level 2 Budget] - fact_L1[Actuals]
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 69201b14-a149-444e-a73f-75c975b5c94f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% Spent' = (fact_L1[Actuals] / fact_L1[Level 1 Budget])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 1491edd0-e145-428a-a1c3-86a6bc77ffa3
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_L1 = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Contents("https://amtrak.sharepoint.com/sites/CapitalDeliveryNortheast/", [ApiVersion = 15]),
+				    #"Shared Documents" = Source{[Name="Shared Documents"]}[Content],
+				    General = #"Shared Documents"{[Name="General"]}[Content],
+				    #"08-Department_Administrative" = General{[Name="08-Department_Administrative"]}[Content],
+				    #"NED Overview Files" = #"08-Department_Administrative"{[Name="NED Overview Files"]}[Content],
+				    #"CAPD FY25" = #"NED Overview Files"{[Name="CAPD FY25"]}[Content],
+				    L1 = #"CAPD FY25"{[Name="L1"]}[Content],
+				    #"SAP Level 1 View xlsx" = L1{[Name="SAP Level 1 View.xlsx"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"SAP Level 1 View xlsx"),
+				    Export_Sheet = #"Imported Excel Workbook"{[Item="Export",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Export_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"CAPD  Arm", type text}, {"CAPD Arm Category", type text}, {"Vice President", type text}, {"Asst Vice President/Sr. Director", type text}, {"Portfolio", type text}, {"Project or Program", type text}, {"WBS Number", type text}, {"SAP Level 1 Description", type text}, {"Project Manager", type text}, {"Complexity Rating", type text}, {"Level 1 Budget", Int64.Type}, {"FY Level 2 Budget", Int64.Type}, {"Actuals", Int64.Type}, {"Board Approved LOP", type number}, {"LOP Actuals", type number}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"WBS Number", "WBS LV1"}, {"SAP Level 1 Description", "WBS LV1 Description"}}),
+				    #"Sorted Rows" = Table.Sort(#"Renamed Columns",{{"WBS LV1", Order.Ascending}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Sorted Rows", each ([WBS LV1] = "C.EN.101309" or [WBS LV1] = "C.EN.101584" or [WBS LV1] = "C.EN.101591" or [WBS LV1] = "C.EN.101777" or [WBS LV1] = "C.EN.101790" or [WBS LV1] = "C.EN.101796" or [WBS LV1] = "C.EN.101819" or [WBS LV1] = "C.EN.101820" or [WBS LV1] = "C.EN.101821" or [WBS LV1] = "C.EN.101836" or [WBS LV1] = "C.EN.101837" or [WBS LV1] = "C.EN.101838" or [WBS LV1] = "C.EN.101839" or [WBS LV1] = "C.EN.101840" or [WBS LV1] = "C.EN.101841" or [WBS LV1] = "C.EN.101842" or [WBS LV1] = "C.EN.101866" or [WBS LV1] = "C.EN.101924" or [WBS LV1] = "C.EN.101927" or [WBS LV1] = "C.MP.100107" or [WBS LV1] = "C.SP.100087"))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

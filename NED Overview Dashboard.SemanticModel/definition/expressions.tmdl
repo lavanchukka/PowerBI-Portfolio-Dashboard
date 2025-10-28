@@ -1,0 +1,152 @@
+expression Parameter1 = #"Sample File" meta [IsParameterQuery=true, BinaryIdentifier=#"Sample File", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: 6222139b-0e8a-4979-a442-322199233142
+	queryGroup: 'Transform File from EPPM - TDR\Helper Queries'
+
+	annotation PBI_ResultType = Binary
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression 'Sample File' =
+		let
+		    Source = SharePoint.Contents("https://amtrak.sharepoint.com/sites/CapitalDeliveryNortheast/", [ApiVersion = 15]),
+		    #"Filtered Rows" = Table.SelectRows(Source, each ([Name] = "Shared Documents")),
+		    #"Shared Documents" = #"Filtered Rows"{[Name="Shared Documents"]}[Content],
+		    General = #"Shared Documents"{[Name="General"]}[Content],
+		    #"Filtered Rows1" = Table.SelectRows(General, each ([Name] = "08-Department_Administrative")),
+		    #"08-Department_Administrative" = #"Filtered Rows1"{[Name="08-Department_Administrative"]}[Content],
+		    #"Filtered Rows2" = Table.SelectRows(#"08-Department_Administrative", each ([Name] = "NED Overview Files")),
+		    #"NED Overview Files" = #"Filtered Rows2"{[Name="NED Overview Files"]}[Content],
+		    #"EPPM - TDR" = #"NED Overview Files"{[Name="EPPM - TDR"]}[Content],
+		    Navigation1 = #"EPPM - TDR"{0}[Content]
+		in
+		    Navigation1
+	lineageTag: 70448493-2a32-47fa-b083-b674a1e17e9b
+	queryGroup: 'Transform File from EPPM - TDR\Helper Queries'
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transform File' =
+		let
+		    Source = (Parameter1 as binary) => let
+		    Source = Excel.Workbook(Parameter1, null, true),
+		    #"TDR _Sheet" = Source{[Item="TDR ",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(#"TDR _Sheet", [PromoteAllScalars=true])
+		in
+		    #"Promoted Headers"
+		in
+		    Source
+	lineageTag: 20d5a71f-e957-490e-955d-197694c7e7ca
+	queryGroup: 'Transform File from EPPM - TDR\Helper Queries'
+
+	annotation PBI_ResultType = Function
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression 'Transform File (2)' =
+		let
+		    Source = (Parameter2) => let
+		        Source = Excel.Workbook(Parameter2, null, true),
+		        #"1.1.2025_Sheet" = Source{[Item="1.1.2025",Kind="Sheet"]}[Data],
+		        #"Promoted Headers" = Table.PromoteHeaders(#"1.1.2025_Sheet", [PromoteAllScalars=true])
+		    in
+		        #"Promoted Headers"
+		in
+		    Source
+	lineageTag: a00a58a6-9c96-48f3-a669-a8d0baddc1c3
+	queryGroup: 'Transform File from Maximo\Helper Queries'
+
+	annotation PBI_ResultType = Function
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression Parameter3 = #"Sample File (3)" meta [IsParameterQuery=true, BinaryIdentifier=#"Sample File (3)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: c89fb993-1c9b-46d1-840d-aa0e8b3fef03
+	queryGroup: 'Transform File from Maximo (2)\Helper Queries'
+
+	annotation PBI_ResultType = Binary
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression 'Transform Sample File (2)' =
+		let
+		    Source = Excel.Workbook(Parameter3, null, true),
+		    WorkReportingENG_Sheet = Source{[Item="WorkReportingENG",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(WorkReportingENG_Sheet, [PromoteAllScalars=true])
+		in
+		    #"Promoted Headers"
+	lineageTag: 3a6212fc-dbe4-4909-bf04-b3dd4581efb7
+	queryGroup: 'Transform File from Maximo (2)'
+
+	annotation PBI_ResultType = Table
+
+expression 'Sample File (3)' =
+		let
+		    Source = SharePoint.Contents("https://amtrak.sharepoint.com/sites/CapitalDeliveryNortheast/", [ApiVersion = 15]),
+		    #"Shared Documents" = Source{[Name="Shared Documents"]}[Content],
+		    General = #"Shared Documents"{[Name="General"]}[Content],
+		    #"08-Department_Administrative" = General{[Name="08-Department_Administrative"]}[Content],
+		    #"NED Overview Files" = #"08-Department_Administrative"{[Name="NED Overview Files"]}[Content],
+		    Maximo1 = #"NED Overview Files"{[Name="Maximo"]}[Content],
+		    #"WorkReportingENG xlsx1" = Maximo1{[Name="WorkReportingENG.xlsx"]}[Content]
+		in
+		    #"WorkReportingENG xlsx1"
+	lineageTag: a6342b38-8bac-4e45-856d-fcd54f88ead2
+	queryGroup: 'Transform File from Maximo (2)\Helper Queries'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transform File (3)' =
+		let
+		    Source = (Parameter3 as binary) => let
+		    Source = Excel.Workbook(Parameter3, null, true),
+		    WorkReportingENG_Sheet = Source{[Item="WorkReportingENG",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(WorkReportingENG_Sheet, [PromoteAllScalars=true])
+		in
+		    #"Promoted Headers"
+		in
+		    Source
+	lineageTag: bb99d2cc-5229-4f57-a7b4-1c776aa7aadd
+	queryGroup: 'Transform File from Maximo (2)\Helper Queries'
+
+	annotation PBI_ResultType = Function
+
+expression 'Transform File (4)' =
+		let
+		    Source = (Parameter2 as binary) => let
+		    Source = Excel.Workbook(Parameter2, null, true),
+		    SAP_Table = Source{[Item="SAP",Kind="Table"]}[Data]
+		in
+		    SAP_Table
+		in
+		    Source
+	lineageTag: 2009cc40-af21-43aa-89e3-6e6d2088f0ba
+	queryGroup: 'Transform File from Query1\Helper Queries'
+
+	annotation PBI_ResultType = Function
+
+expression 'Errors in fact_Labor_details' =
+		let
+		Source = fact_Labor_details,
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Document Date", "Posting Date", "WBS LV1", "WBS Element LV2", "WBS LV2 Description", "Cost Element", "Cost Cat Adjust", "Costs/Val", "Cost element name", "Purchasing Document", "Supplier", "Vendor Name", "From Period", "Fiscal Year", "Partner object", "CO partner object name", "Personnel Number", "Document Number", "Name of offsetting account", "Document Header Text", "Total quantity", "Aux. acct assignment_1", "Business Transaction", "CO area currency", "Company Code", "Created on", "Customer", "Customer Name", "Debit type", "Document type", "Dr/Cr indicator", "FI Posting Item", "Exchange Rate Type", "Functional Area", "Item", "Ledger", "Log. system source", "Logical System", "Material", "Material Description", "Name", "Name of offsetting account_1", "Object", "Object Currency", "Object type", "Object type_2", "Offsetting account type", "Offsetting acct no.", "Origin-obj. type", "Original bus. trans", "ParActivity", "Parked by", "Partner CoCode", "Partner Func. Area", "Partner Object Class", "Partner object type", "Partner object type_3", "Partner Segment", "Cost Center", "Period", "Plant", "Posted unit of meas.", "Posting row", "Posting row_4", "Proj.type", "Purchase order text", "Ref Document Number", "Ref. company code", "Ref. fiscal year", "Ref.document type", "Reference Org Unit", "Reference Transact.", "Report currency", "Reversal document", "Reversal organizatn", "Reversal referen.no.", "Reversed", "Row in op. version", "Segment", "Source Object", "Source object name", "Source object type", "Time created", "Time of Entry", "To Period", "Total Quantity.1", "Transaction Currency", "Unit of Measure", "User Name", "Val.in rep.cur.", "value date", "Value in Obj. Crcy", "Value TranCurr", "Value Type", "Var.val.in rep.cur.", "Vbl. value/Obj. curr", "Vbl. value/TranCurr.", "Vbl.Val./COCrcy", "Version", "Personnel Number_5", "WBS L1", "Cost Cat", "Portfolio", "PM", "Acct", "Labor type short"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Document Date", "Posting Date", "WBS LV1", "WBS Element LV2", "WBS LV2 Description", "Cost Element", "Cost Cat Adjust", "Costs/Val", "Cost element name", "Purchasing Document", "Supplier", "Vendor Name", "From Period", "Fiscal Year", "Partner object", "CO partner object name", "Personnel Number", "Document Number", "Name of offsetting account", "Document Header Text", "Total quantity", "Aux. acct assignment_1", "Business Transaction", "CO area currency", "Company Code", "Created on", "Customer", "Customer Name", "Debit type", "Document type", "Dr/Cr indicator", "FI Posting Item", "Exchange Rate Type", "Functional Area", "Item", "Ledger", "Log. system source", "Logical System", "Material", "Material Description", "Name", "Name of offsetting account_1", "Object", "Object Currency", "Object type", "Object type_2", "Offsetting account type", "Offsetting acct no.", "Origin-obj. type", "Original bus. trans", "ParActivity", "Parked by", "Partner CoCode", "Partner Func. Area", "Partner Object Class", "Partner object type", "Partner object type_3", "Partner Segment", "Cost Center", "Period", "Plant", "Posted unit of meas.", "Posting row", "Posting row_4", "Proj.type", "Purchase order text", "Ref Document Number", "Ref. company code", "Ref. fiscal year", "Ref.document type", "Reference Org Unit", "Reference Transact.", "Report currency", "Reversal document", "Reversal organizatn", "Reversal referen.no.", "Reversed", "Row in op. version", "Segment", "Source Object", "Source object name", "Source object type", "Time created", "Time of Entry", "To Period", "Total Quantity.1", "Transaction Currency", "Unit of Measure", "User Name", "Val.in rep.cur.", "value date", "Value in Obj. Crcy", "Value TranCurr", "Value Type", "Var.val.in rep.cur.", "Vbl. value/Obj. curr", "Vbl. value/TranCurr.", "Vbl.Val./COCrcy", "Version", "Personnel Number_5", "WBS L1", "Cost Cat", "Portfolio", "PM", "Acct", "Labor type short"}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Reordered Columns",{{"Posting Date", type date}, {"Document Date", type date}})
+		in
+		    #"Changed Type"
+	lineageTag: 8d12af39-9839-495f-8057-d78242eee0b3
+	queryGroup: 'Query Errors - 2/3/2025 5:15:38 PM'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
