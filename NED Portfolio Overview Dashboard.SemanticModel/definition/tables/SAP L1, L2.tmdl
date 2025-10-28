@@ -1,0 +1,274 @@
+table 'SAP L1, L2'
+	lineageTag: 00511dab-36ec-4e2f-b611-f52cc2aebe64
+
+	measure 'Last 7 days' = CALCULATE(SUM('SAP L1, L2'[$ Amount]),filter('SAP L1, L2', 'SAP L1, L2'[Posting Date]>=TODAY() -6 && 'SAP L1, L2'[Posting Date] <= TODAY()))
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 1a8eea1c-bdf2-4fa3-bddd-bc87f34f76fa
+
+	column 'Document Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 9500f07f-009d-43ee-9583-442f127ed03e
+		summarizeBy: none
+		sourceColumn: Document Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Posting Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: fd3678ad-ad39-4ede-b2ac-4627a065221a
+		summarizeBy: none
+		sourceColumn: Posting Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Project Definition'
+		dataType: string
+		lineageTag: b0572c3c-6a49-443c-8ee9-7eda492781a2
+		summarizeBy: none
+		sourceColumn: Project Definition
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Element'
+		dataType: string
+		lineageTag: 1ee8619e-2b5b-40c4-95a6-e9a84aa1131e
+		summarizeBy: none
+		sourceColumn: WBS Element
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CO object name'
+		dataType: string
+		lineageTag: a81ddc85-941f-482b-a3ef-4b449828985a
+		summarizeBy: none
+		sourceColumn: CO object name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3ad2800a-6931-49f9-af7d-6c4e8e507600
+		summarizeBy: sum
+		sourceColumn: Cost Element
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost element descr.'
+		dataType: string
+		lineageTag: 545a47c0-185b-4877-ae27-cc7250574de5
+		summarizeBy: none
+		sourceColumn: Cost element descr.
+
+		annotation SummarizationSetBy = Automatic
+
+	column '$ Amount'
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 50845ba6-61b6-4424-9f64-1056d7773273
+		summarizeBy: sum
+		sourceColumn: $ Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Purchasing Document'
+		dataType: int64
+		formatString: 0
+		lineageTag: e25b1590-1e2c-47ae-aa07-d92a78070e2a
+		summarizeBy: none
+		sourceColumn: Purchasing Document
+
+		annotation SummarizationSetBy = User
+
+	column Supplier
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f6ff81c-21d9-4f39-bc57-6ffcb4cbc171
+		summarizeBy: sum
+		sourceColumn: Supplier
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Vendor Name'
+		dataType: string
+		lineageTag: d4f2622b-909c-4fd6-a623-0899c1b074c7
+		summarizeBy: none
+		sourceColumn: Vendor Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'From Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: 38b513f1-5873-4c1d-b0ec-bd954ab74335
+		summarizeBy: sum
+		sourceColumn: From Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: c036687e-b21f-4344-9b92-3550d90028ed
+		summarizeBy: sum
+		sourceColumn: Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner object'
+		dataType: string
+		lineageTag: 46abc9c6-7c21-406c-9429-17255763911b
+		summarizeBy: none
+		sourceColumn: Partner object
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CO partner object name'
+		dataType: string
+		lineageTag: d5fe745b-912c-4383-bf24-f05da6b7d25a
+		summarizeBy: none
+		sourceColumn: CO partner object name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Personnel Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: c16ea827-4ce2-465d-91b5-4229cca24ab1
+		summarizeBy: sum
+		sourceColumn: Personnel Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Document Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7fa852ca-a10a-46cb-8eb2-af8c76f1dd51
+		summarizeBy: sum
+		sourceColumn: Document Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Name of offsetting account'
+		dataType: string
+		lineageTag: 8f5b73c1-5dd0-4123-a3c4-6925c34978de
+		summarizeBy: none
+		sourceColumn: Name of offsetting account
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Document Header Text'
+		dataType: string
+		lineageTag: 614a3b4f-73b9-43e1-9bab-217bf5d36409
+		summarizeBy: none
+		sourceColumn: Document Header Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Quantity'
+		dataType: int64
+		formatString: #,0
+		lineageTag: 174746f2-7be9-4bc5-9cc2-8634d20d5de8
+		summarizeBy: sum
+		sourceColumn: Total Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BUDGET L2'
+		dataType: string
+		lineageTag: 4285d0be-4e4e-4c47-a53c-1fee5663ae5f
+		summarizeBy: none
+		sourceColumn: BUDGET L2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BUDGET L1'
+		dataType: string
+		lineageTag: a15ce950-2e95-419c-9706-3bf4d38ee4a4
+		summarizeBy: none
+		sourceColumn: BUDGET L1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unit of Measure'
+		dataType: string
+		lineageTag: ba906aeb-7457-4261-9d9f-85cc898fc586
+		summarizeBy: none
+		sourceColumn: Unit of Measure
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material
+		dataType: string
+		lineageTag: 18c1d9a6-817c-44a1-a684-ba0fa6ff403a
+		summarizeBy: none
+		sourceColumn: Material
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Description'
+		dataType: string
+		lineageTag: c138f134-f9ff-4681-aea0-58db6852dbf5
+		summarizeBy: none
+		sourceColumn: Material Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column Plant
+		dataType: string
+		lineageTag: e40a3c5c-34e0-40c2-a09a-fc51cdd19aae
+		summarizeBy: none
+		sourceColumn: Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Purchase order text'
+		dataType: string
+		lineageTag: 2dc1f2e7-df73-4662-a6e5-ab9693256661
+		summarizeBy: none
+		sourceColumn: Purchase order text
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: string
+		lineageTag: 1c89442b-f57b-4f6a-a79d-be6f0f848d89
+		summarizeBy: none
+		sourceColumn: Month
+		sortByColumn: 'From Period'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'SAP L1, L2' = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Contents("https://amtrak.sharepoint.com/sites/CapitalDeliveryNortheast/", [ApiVersion = 15]),
+				    #"Shared Documents" = Source{[Name="Shared Documents"]}[Content],
+				    General = #"Shared Documents"{[Name="General"]}[Content],
+				    #"08-Department_Administrative" = General{[Name="08-Department_Administrative"]}[Content],
+				    #"NED Overview Files" = #"08-Department_Administrative"{[Name="NED Overview Files"]}[Content],
+				    #"SAP L1, L2" = #"NED Overview Files"{[Name="SAP L1, L2"]}[Content],
+				    #"SAP L1, L2 XLSX" = #"SAP L1, L2"{[Name="SAP L1, L2.XLSX"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"SAP L1, L2 XLSX"),
+				    Sheet1_Sheet = #"Imported Excel Workbook"{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Document Date", type date}, {"Posting Date", type date}, {"Project Definition", type text}, {"WBS Element", type text}, {"CO object name", type text}, {"Cost Element", Int64.Type}, {"Cost element descr.", type text}, {"Val/COArea Crcy", type number}, {"Purchasing Document", Int64.Type}, {"Supplier", Int64.Type}, {"Vendor Name", type text}, {"From Period", Int64.Type}, {"Fiscal Year", Int64.Type}, {"Partner object", type text}, {"CO partner object name", type text}, {"Personnel Number", Int64.Type}, {"Document Number", Int64.Type}, {"Name of offsetting account", type text}, {"Document Header Text", type text}, {"Total Quantity", Int64.Type}, {"BUDGET L2", type any}, {"BUDGET L1", type any}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Val/COArea Crcy", "$ Amount"}}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Renamed Columns", "Custom", each if [From Period] = 1 then "OCT" else if [From Period] = 2 then "NOV" else if [From Period] = 3 then "DEC" else if [From Period] = 4 then "JAN" else if [From Period] = 5 then "FEB" else if [From Period] = 6 then "MAR" else if [From Period] = 7 then "APR" else if [From Period] = 8 then "MAY" else if [From Period] = 9 then "JUN" else if [From Period] = 10 then "JUL" else if [From Period] = 11 then "AUG" else if [From Period] = 12 then "SEP" else "N/A"),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Added Conditional Column",{{"Custom", "Month"}})
+				in
+				    #"Renamed Columns1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

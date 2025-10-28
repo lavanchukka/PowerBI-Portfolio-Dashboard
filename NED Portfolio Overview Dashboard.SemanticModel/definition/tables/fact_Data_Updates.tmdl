@@ -1,0 +1,49 @@
+table fact_Data_Updates
+	lineageTag: abb5026b-866f-4214-be62-5b03b5ac18d0
+
+	column 'Page Name'
+		dataType: string
+		lineageTag: 66fd6cce-39be-4559-a0e8-59bb6975de12
+		summarizeBy: none
+		sourceColumn: Page Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data Source'
+		dataType: string
+		lineageTag: 470e9a9b-1bce-4411-aeec-29bf045c546f
+		summarizeBy: none
+		sourceColumn: Data Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Updated'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 8f4ace8c-6713-4fa4-96df-50fc9cae369b
+		summarizeBy: none
+		sourceColumn: Last Updated
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition fact_Data_Updates = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Contents("https://amtrak.sharepoint.com/sites/CapitalDeliveryNortheast/", [ApiVersion = 15]),
+				    #"Shared Documents" = Source{[Name="Shared Documents"]}[Content],
+				    General = #"Shared Documents"{[Name="General"]}[Content],
+				    #"08-Department_Administrative" = General{[Name="08-Department_Administrative"]}[Content],
+				    #"NED Overview Files" = #"08-Department_Administrative"{[Name="NED Overview Files"]}[Content],
+				    #"Data Sources xlsx" = #"NED Overview Files"{[Name="Data Sources.xlsx"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"Data Sources xlsx"),
+				    Updates_Table = #"Imported Excel Workbook"{[Item="Updates",Kind="Table"]}[Data]
+				in
+				    Updates_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

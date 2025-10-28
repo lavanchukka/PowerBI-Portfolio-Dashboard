@@ -1,0 +1,167 @@
+table fact_EPPM_TDR
+	lineageTag: 68108997-927a-452c-b1ae-b0ac02695077
+
+	column 'Fiscal Year'
+		dataType: string
+		lineageTag: 9519812b-599f-48fc-bb36-16a02a3f833e
+		summarizeBy: none
+		sourceColumn: Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TDR Period'
+		dataType: string
+		lineageTag: cd8db0ae-4eab-48d6-8c52-bd6e939c676e
+		summarizeBy: none
+		sourceColumn: TDR Period
+		sortByColumn: Period
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS LV1'
+		dataType: string
+		lineageTag: 5271d972-d9b3-483b-bc15-c45ec2e0b414
+		summarizeBy: none
+		sourceColumn: WBS LV1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS LV2'
+		dataType: string
+		lineageTag: c78fa48f-ed6b-4180-bc13-fc60e43cd402
+		summarizeBy: none
+		sourceColumn: WBS LV2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBSE Description'
+		dataType: string
+		lineageTag: c1771608-e029-4ff3-a20c-44caf0939908
+		summarizeBy: none
+		sourceColumn: WBSE Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Project Manager'
+		dataType: string
+		lineageTag: 8524c669-f91f-43f8-b92c-62635f68ea21
+		summarizeBy: none
+		sourceColumn: Project Manager
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Employee ID'
+		dataType: string
+		lineageTag: 640846fd-69a6-4694-b7b0-99cba16583d7
+		summarizeBy: none
+		sourceColumn: Employee ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Employee Name'
+		dataType: string
+		lineageTag: b1d78e66-7319-45b7-87d3-89b1e89a1626
+		summarizeBy: none
+		sourceColumn: Employee Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Hours'
+		dataType: double
+		formatString: #,0
+		lineageTag: a7362dec-6117-478a-993e-f1cb0922634d
+		summarizeBy: sum
+		sourceColumn: Total Hours
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Employee Comment'
+		dataType: string
+		lineageTag: 8a4ba659-aaea-4176-978f-2889c81c2097
+		summarizeBy: none
+		sourceColumn: Employee Comment
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Project Name'
+		dataType: string
+		lineageTag: f12b9ba4-c2cd-41d7-b44a-e20c577b201a
+		summarizeBy: none
+		sourceColumn: Project Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Calendar Year'
+		dataType: string
+		lineageTag: 23323943-f2b4-44e4-9a7e-edf606e8db36
+		summarizeBy: none
+		sourceColumn: Calendar Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Modified'
+		dataType: string
+		lineageTag: 3b7f9d26-990c-4af6-af3a-883f46b25674
+		summarizeBy: none
+		sourceColumn: Last Modified
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: d6c5da0a-451d-40df-a155-652b002e3b5c
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Period
+		dataType: string
+		lineageTag: 102651db-fead-47d8-b0de-195ac2a0d8b9
+		summarizeBy: none
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column15
+		dataType: string
+		lineageTag: d1cdb9f7-3dac-4e10-a489-a93c63d1c574
+		summarizeBy: none
+		sourceColumn: Column15
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_EPPM_TDR = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Contents("https://amtrak.sharepoint.com/sites/CapitalDeliveryNortheast/", [ApiVersion = 15]),
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([Name] = "Shared Documents")),
+				    #"Shared Documents" = #"Filtered Rows"{[Name="Shared Documents"]}[Content],
+				    General = #"Shared Documents"{[Name="General"]}[Content],
+				    #"Filtered Rows1" = Table.SelectRows(General, each ([Name] = "08-Department_Administrative")),
+				    #"08-Department_Administrative" = #"Filtered Rows1"{[Name="08-Department_Administrative"]}[Content],
+				    #"Filtered Rows2" = Table.SelectRows(#"08-Department_Administrative", each ([Name] = "NED Overview Files")),
+				    #"NED Overview Files" = #"Filtered Rows2"{[Name="NED Overview Files"]}[Content],
+				    #"EPPM - TDR" = #"NED Overview Files"{[Name="EPPM - TDR"]}[Content],
+				    #"Filtered Rows4" = Table.SelectRows(#"EPPM - TDR", each ([Name] = "TDR Cleaned data.xlsx")),
+				    #"Invoke Custom Function1" = Table.AddColumn(#"Filtered Rows4", "Transform File", each #"Transform File"([Content])),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Invoke Custom Function1", {"Name", "Source.Name"}),
+				    #"Removed Other Columns1" = Table.SelectColumns(#"Renamed Columns1", {"Source.Name", "Transform File"}),
+				    #"Expanded Table Column1" = Table.ExpandTableColumn(#"Removed Other Columns1", "Transform File", Table.ColumnNames(#"Transform File"(#"Sample File"))),
+				    #"Filtered Rows3" = Table.SelectRows(#"Expanded Table Column1", each true),
+				    #"Removed Columns" = Table.RemoveColumns(#"Filtered Rows3",{"Source.Name"}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Removed Columns",{"Fiscal Year", "Project Code", "WBSE", "Project Name", "Project Manager", "Calendar Year", "TDR Period", "Last Modified", "Status", "WBSE Description", "Employee ID", "Employee Name", "Total Hours", "Employee Comment"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Reordered Columns",{{"Project Code", "WBS LV1"}, {"WBSE", "WBS LV2"}}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Renamed Columns", "Period", each if Text.StartsWith([TDR Period], "Oct ") then 1 else if Text.StartsWith([TDR Period], "Nov ") then 2 else if Text.StartsWith([TDR Period], "Dec") then 3 else if Text.StartsWith([TDR Period], "Jan") then 4 else if Text.StartsWith([TDR Period], "Feb") then 5 else if Text.StartsWith([TDR Period], "Mar") then 6 else if Text.StartsWith([TDR Period], "Apr") then 7 else if Text.StartsWith([TDR Period], "May") then 8 else if Text.StartsWith([TDR Period], "Jun") then 9 else if Text.StartsWith([TDR Period], "Jul") then 10 else if Text.StartsWith([TDR Period], "Aug") then 11 else if Text.StartsWith([TDR Period], "Sep") then 12 else "n/a")
+				in
+				    #"Added Conditional Column"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

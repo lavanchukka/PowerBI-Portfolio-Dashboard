@@ -1,0 +1,200 @@
+table fact_L2
+	lineageTag: a14e33ff-22e2-4ead-acd7-1b4de7bf7b47
+
+	column 'WBS LV2'
+		dataType: string
+		lineageTag: b13d691e-7365-4a2e-a120-7a4952d13269
+		summarizeBy: none
+		sourceColumn: WBS LV2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Project or Program'
+		dataType: string
+		lineageTag: 3f940bfe-73be-4551-93d7-b633435b2b0d
+		summarizeBy: none
+		sourceColumn: Project or Program
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS LV2 Description'
+		dataType: string
+		lineageTag: 4c6fa128-8611-4fb7-8408-16c649ed78c6
+		summarizeBy: none
+		sourceColumn: WBS LV2 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status in BPC'
+		dataType: string
+		lineageTag: b297b66b-033a-486f-80e0-291d7eae823f
+		summarizeBy: none
+		sourceColumn: Status in BPC
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FY Level 2 Budget'
+		dataType: int64
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2eee1d5a-88a5-4ff9-be61-eae809d69d04
+		summarizeBy: sum
+		sourceColumn: FY Level 2 Budget
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FY Level 2 Actuals'
+		dataType: int64
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b6cd434f-c4c3-4fdd-8245-312b43c84225
+		summarizeBy: sum
+		sourceColumn: FY Level 2 Actuals
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Level 2 Variance'
+		dataType: int64
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: f62ea533-1626-4178-9e12-159ae2c074c7
+		summarizeBy: sum
+		sourceColumn: Level 2 Variance
+
+		annotation SummarizationSetBy = Automatic
+
+	column October
+		dataType: int64
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6a691fb0-06ae-4edc-928c-c4c6c9b8519a
+		summarizeBy: sum
+		sourceColumn: October
+
+		annotation SummarizationSetBy = Automatic
+
+	column November
+		dataType: int64
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6235991e-ea81-4895-8327-e43aafe0684c
+		summarizeBy: sum
+		sourceColumn: November
+
+		annotation SummarizationSetBy = Automatic
+
+	column December
+		dataType: int64
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: d19658db-6e37-4671-aa37-78cd8de28f2a
+		summarizeBy: sum
+		sourceColumn: December
+
+		annotation SummarizationSetBy = Automatic
+
+	column January
+		dataType: int64
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b830c3d1-759f-4cf6-9b50-c3837817a8ce
+		summarizeBy: sum
+		sourceColumn: January
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column February
+		dataType: string
+		lineageTag: bad2fe48-6e0b-44b5-9f59-728b6f1a6f06
+		summarizeBy: none
+		sourceColumn: February
+
+		annotation SummarizationSetBy = Automatic
+
+	column March
+		dataType: string
+		lineageTag: 1e19b491-6ba9-42ee-9d3b-b6d40aeac693
+		summarizeBy: none
+		sourceColumn: March
+
+		annotation SummarizationSetBy = Automatic
+
+	column April
+		dataType: string
+		lineageTag: 8166d95e-0b76-48dd-94fa-114076b686dc
+		summarizeBy: none
+		sourceColumn: April
+
+		annotation SummarizationSetBy = Automatic
+
+	column May
+		dataType: string
+		lineageTag: 06527e83-1fc4-4d08-a122-f7b5724ea5cd
+		summarizeBy: none
+		sourceColumn: May
+
+		annotation SummarizationSetBy = Automatic
+
+	column June
+		dataType: string
+		lineageTag: 1cc7a860-b037-4665-abfe-06f731634c73
+		summarizeBy: none
+		sourceColumn: June
+
+		annotation SummarizationSetBy = Automatic
+
+	column July
+		dataType: string
+		lineageTag: 262632f6-fb25-478a-b165-76274d4ff3a3
+		summarizeBy: none
+		sourceColumn: July
+
+		annotation SummarizationSetBy = Automatic
+
+	column August
+		dataType: string
+		lineageTag: dfe4fb7c-9b73-4f70-b923-b8c96926db1c
+		summarizeBy: none
+		sourceColumn: August
+
+		annotation SummarizationSetBy = Automatic
+
+	column September
+		dataType: string
+		lineageTag: ec5571d8-6d57-4deb-9864-e407190ad31d
+		summarizeBy: none
+		sourceColumn: September
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS LV1'
+		dataType: string
+		lineageTag: 9056f0ac-d52a-4bc2-9505-df165fb1c15e
+		summarizeBy: none
+		sourceColumn: WBS LV1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_L2 = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Contents("https://amtrak.sharepoint.com/sites/CapitalDeliveryNortheast/", [ApiVersion = 15]),
+				    #"Shared Documents" = Source{[Name="Shared Documents"]}[Content],
+				    General = #"Shared Documents"{[Name="General"]}[Content],
+				    #"08-Department_Administrative" = General{[Name="08-Department_Administrative"]}[Content],
+				    #"NED Overview Files" = #"08-Department_Administrative"{[Name="NED Overview Files"]}[Content],
+				    #"CAPD FY25" = #"NED Overview Files"{[Name="CAPD FY25"]}[Content],
+				    L2 = #"CAPD FY25"{[Name="L2"]}[Content],
+				    #"SAP Level 2 View xlsx" = L2{[Name="SAP Level 2 View.xlsx"]}[Content],
+				    #"Imported Excel Workbook" = Excel.Workbook(#"SAP Level 2 View xlsx"),
+				    Export_Sheet = #"Imported Excel Workbook"{[Item="Export",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Export_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"WBSE Number", type text}, {"Project or Program", type text}, {"SAP L2 Description", type text}, {"Status in BPC", type text}, {"FY Level 2 Budget", Int64.Type}, {"FY Level 2 Actuals", Int64.Type}, {"Level 2 Variance", Int64.Type}, {"October", Int64.Type}, {"November", Int64.Type}, {"December", Int64.Type}, {"January", type text}, {"February", type text}, {"March", type text}, {"April", type text}, {"May", type text}, {"June", type text}, {"July", type text}, {"August", type text}, {"September", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"WBSE Number", "WBS LV2"}, {"SAP L2 Description", "WBS LV2 Description"}}),
+				    #"Inserted First Characters" = Table.AddColumn(#"Renamed Columns", "First Characters", each Text.Start([WBS LV2], 11), type text),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Inserted First Characters",{{"First Characters", "WBS LV1"}}),
+				    #"Sorted Rows" = Table.Sort(#"Renamed Columns1",{{"WBS LV1", Order.Ascending}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Sorted Rows", each ([WBS LV1] = "C.EN.101309" or [WBS LV1] = "C.EN.101584" or [WBS LV1] = "C.EN.101591" or [WBS LV1] = "C.EN.101777" or [WBS LV1] = "C.EN.101790" or [WBS LV1] = "C.EN.101796" or [WBS LV1] = "C.EN.101819" or [WBS LV1] = "C.EN.101820" or [WBS LV1] = "C.EN.101821" or [WBS LV1] = "C.EN.101836" or [WBS LV1] = "C.EN.101837" or [WBS LV1] = "C.EN.101838" or [WBS LV1] = "C.EN.101839" or [WBS LV1] = "C.EN.101840" or [WBS LV1] = "C.EN.101841" or [WBS LV1] = "C.EN.101842" or [WBS LV1] = "C.EN.101866" or [WBS LV1] = "C.EN.101924" or [WBS LV1] = "C.EN.101927" or [WBS LV1] = "C.MP.100107" or [WBS LV1] = "C.SP.100087"))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,308 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 76
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 118.50808517031072,
+            "y": 177.50726464320428
+          },
+          "nodeIndex": "fact_Maximo",
+          "nodeLineageTag": "22cc433b-2a1d-4469-8922-bd6c259f26af",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 414.82948722434639,
+            "y": 513.42908038169924
+          },
+          "nodeIndex": "fact_Ariba_PO",
+          "nodeLineageTag": "538a3659-f46b-46b7-be4b-7d10c16ab635",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 18
+        },
+        {
+          "location": {
+            "x": 745.112110279055,
+            "y": 339.60743913742363
+          },
+          "nodeIndex": "dim_WBS_LV1_PM",
+          "nodeLineageTag": "f6d6d28c-f37b-42e1-b9ea-b49af74c929d",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 627.53121597253391,
+            "y": 0
+          },
+          "nodeIndex": "fact_EPPM_TDR",
+          "nodeLineageTag": "68108997-927a-452c-b1ae-b0ac02695077",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 1861.1296800866837,
+            "y": 214.15368924739
+          },
+          "nodeIndex": "dim_Work_Codes",
+          "nodeLineageTag": "6d3ca221-df67-47ce-8cd4-96a4088e67a1",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 1866.79634675335,
+            "y": 458.15368924739005
+          },
+          "nodeIndex": "SharePoint Source",
+          "nodeLineageTag": "a700d327-a436-490e-aaf5-769751a0e468",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 896.10732218512544,
+            "y": 581.176891146631
+          },
+          "nodeIndex": "dim_Project_data",
+          "nodeLineageTag": "c35ff03b-dab9-42f3-953e-29c9d6b8f4e6",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 16
+        },
+        {
+          "location": {
+            "x": 1116.1212689314782,
+            "y": 189.23638111905279
+          },
+          "nodeIndex": "fact_Labor_Costs",
+          "nodeLineageTag": "0fd2e92f-89c6-4508-8def-9c04f1993ba9",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 982.26204271695883
+          },
+          "nodeIndex": "fact_Labor_details",
+          "nodeLineageTag": "d1b0e750-add7-4219-ae51-e7cd8237e3eb",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 17
+        },
+        {
+          "location": {
+            "x": 1575.4630134200172,
+            "y": 775.55744435149029
+          },
+          "nodeIndex": "fact_L1",
+          "nodeLineageTag": "0c63695c-dbee-4e6e-972a-1e7a27a8fe7c",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 19
+        },
+        {
+          "location": {
+            "x": 1224.8369167135779,
+            "y": 966.49033758814949
+          },
+          "nodeIndex": "fact_L2",
+          "nodeLineageTag": "a14e33ff-22e2-4ead-acd7-1b4de7bf7b47",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 20
+        },
+        {
+          "location": {
+            "x": 656.02120000931586,
+            "y": 1472.30737849478
+          },
+          "nodeIndex": "fact_MB51",
+          "nodeLineageTag": "fa08b29a-dc96-4bab-99a2-53abb79df339",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 866.13980712251544,
+            "y": 1119.3899891298458
+          },
+          "nodeIndex": "fact_Project_Stock",
+          "nodeLineageTag": "b78797be-bce0-4276-9c66-034bc99ca04a",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 15
+        },
+        {
+          "location": {
+            "x": 1151.2447769326413,
+            "y": 1394.131664914315
+          },
+          "nodeIndex": "dim_Plant_ID_Details",
+          "nodeLineageTag": "e7f47cb0-bd09-499e-9d31-d5c96a91ad67",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 2188.7963467533505,
+            "y": 133.48702258072342
+          },
+          "nodeIndex": "fact_Data_Updates",
+          "nodeLineageTag": "abb5026b-866f-4214-be62-5b03b5ac18d0",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 337.0929185182876,
+            "y": 896.33171381603211
+          },
+          "nodeIndex": "dim_Cost_Centre_Descriptions",
+          "nodeLineageTag": "f97c5a83-89e4-4a6f-9507-57c869681167",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1403.3573704360376,
+            "y": 383.03825960704444
+          },
+          "nodeIndex": "SAP L1, L2 Pivot",
+          "nodeLineageTag": "0c11015b-9ed6-49cc-ae18-6e471f0a5717",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 21
+        },
+        {
+          "location": {
+            "x": 1738.1296800866839,
+            "y": 1252.15368924739
+          },
+          "nodeIndex": "Track Summary",
+          "nodeLineageTag": "0502ca4e-abe0-4f0d-94d3-773f62985ae2",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 2186.463013420017,
+            "y": 1147.8203559140568
+          },
+          "nodeIndex": "Track Financials",
+          "nodeLineageTag": "ccc41758-bae4-4f8a-85bc-565f12a489c9",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 2018.7963467533505,
+            "y": 719.48702258072342
+          },
+          "nodeIndex": "Track Production",
+          "nodeLineageTag": "d7c7aea1-9e3a-416a-89bd-99d6a29bd4b3",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 1490.4630134200165,
+            "y": 27.820355914056677
+          },
+          "nodeIndex": "SAP L1, L2",
+          "nodeLineageTag": "00511dab-36ec-4e2f-b611-f52cc2aebe64",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 22
+        },
+        {
+          "location": {
+            "x": 2189.1296800866835,
+            "y": 314.15368924738993
+          },
+          "nodeIndex": "fact_Updates_Descrp",
+          "nodeLineageTag": "b48045ea-f525-4dc6-8841-6fefb7d0a5f3",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 4
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 50,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

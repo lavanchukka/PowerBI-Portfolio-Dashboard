@@ -1,0 +1,41 @@
+table dim_WBS_LV1_PM
+	lineageTag: f6d6d28c-f37b-42e1-b9ea-b49af74c929d
+
+	column 'WBS LV1 '
+		dataType: string
+		lineageTag: c85d601d-e926-4a38-ace9-370dde1dd8fd
+		summarizeBy: none
+		sourceColumn: "WBS LV1 "
+
+		annotation SummarizationSetBy = Automatic
+
+	column PM
+		dataType: string
+		lineageTag: 1caa0230-e087-4b4d-8dfc-0d0370766ef7
+		summarizeBy: none
+		sourceColumn: PM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS LV1 Description'
+		dataType: string
+		lineageTag: 129d6eed-7a3f-4cd9-9f1e-e021c53f86c0
+		summarizeBy: none
+		sourceColumn: WBS LV1 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_WBS_LV1_PM = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("nZVdb5swFIb/ylGuNomlkAQSLo1xiFdjI9skSrte0Kxb0apEIlon7dfvQLKmpCSpeoNk4Dycj/c93N72oj6Tfc913cDrOT1blT+KauMAxesT3jCWZ0BEROQSrAJDZ0wyakm8hC8QqzwSDKwm9Lp35xxg3sDvgkVJnsAsj42SICRQzQ2HSPM4YQbkMvT7QXCF19C98tywPwkgzxJNYmYaOt3RvYkXnkyVpRnXDHMzPJFEGMi0QkTaBgzcdwCszqnNNTvFON2vF0bTmVb4S7vdAN+ON9XqsXzYOhBt7vGcRpYAsVawSGkFgksGJNGMpUzadnw4ruO//XbdwdiUT8+FA6a4L9fFJUyrtCPm5ONM2oQFbaLnDT9OPMjqf8+Hbj14tcNFVfmwdkCXq8ei+o73udQC0iVOgAK18GnOhNX8M0i2AC4t00LRay6TFtKfjGphFlW5LVcO3Dxv1r82jVRTgxRvMOgHPpgZWeBRzRlMmYyZBoPfYWm3Pv3QO5MmJZYiUGnWVMyIscAEekrzKceHXMkWbTweXyraZBrrahWJ/WsdNdp2QUSbHLonakebLhjmRQUxBpZEx5Bm7rA/muztirxMEHrQ5YEZdDIbX6RcCNB8jv2rd0mT9ZQzEbc2CWQzYhgMo7bfhjvwdotui4tGQQ20Hi+TiSAyrmVILJNELyFLjsLP+KWLo9Jc7sdh3sLOGKUDNiWUC247kqr1LIrqT4lD/brZPnbHv+yyo/CR+77wV5vsmOC9p6kmj4w90YrRoF6DD+vV36JyQD39PMHYj/YoOuhWS6NAzb1R0B+GkJEFDiLH8J12LkgwHIzOGKYuhEGtba2MaWyT4oKeNxyDokwgJUe8iwZMci6mCl1yxnNp1uxYf9L124g1kUDMbgmmmR/2/brviqO5hcrqhEmEGrp5vR92RM8dd/xJmglg4+q2MYuNA60WYMiUoQxfV7xnmV12k4ulTrnFEo93zdsde/cP", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"WBS LV1 " = _t, PM = _t, #"WBSE Description" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"WBS LV1 ", type text}, {"PM", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"WBSE Description", "WBS LV1 Description"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
