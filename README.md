@@ -1,2 +1,2 @@
 # PowerBI-Portfolio-Dashboard
-Building a powerbi dashboard by pulling da
+Building a powerbi dashboard for the Northeast Portfolio
